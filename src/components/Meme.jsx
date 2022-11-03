@@ -1,12 +1,15 @@
 import React from 'react'
-import memesData from '../memesData'
+import memesData  from './memesData'
+
+
 
 
 export default function Meme() {
-    function getMemeImage(){
-        
-            const getMemeArrays = memesData.data.memes
 
+
+    function getMemeImage(){
+       const memesArray = memesData.data.memes
+     
         
     }
     return(
