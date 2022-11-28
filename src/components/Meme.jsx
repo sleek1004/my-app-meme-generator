@@ -24,19 +24,46 @@ const [meme,setMeme] = React.useState({
         
         
     }
+     function handleChange(event){
+        const{name, value} = event.target
+        setMeme(prevMeme=>({
+            ...prevMeme,
+            [name]:value
+        }))
+     }
     return(
-        <div className='main'>
-            <form className='form'>
-           <input 
+        <main>
+            <div className='form'>
+           < input
            type='text' 
            placeholder='Top text'
-           className='form-inputs'></input>
-           <input type='text'
-           placeholder='Button text'
-           className='data'></input>
-           <button className='meme-button' onClick={getMemeImage} >Get a new meme image  🖼</button>
-           </form>
-           <img src={meme.randomImage} alt="" />
-        </div>
+           className='form-inputs'
+           name='topText'
+           value={meme.topText}
+           onChange={handleChange}
+           />
+            
+          < input
+            type='text'
+           placeholder='Bottom text'
+           className='data'
+           name='bottomText'
+           value={meme.bottomText}
+           onChange={handleChange}
+           />
+
+           <button className='meme-button' 
+           onClick={getMemeImage} 
+           >
+            Get a new meme image  🖼
+           </button>
+           </div>
+          
+           <div className="meme">
+                <img src={meme.randomImage} className="meme--image" />
+                <h2 className="meme--text top">{meme.topText}</h2>
+                <h2 className="meme--text bottom">{meme.bottomText}</h2>
+            </div>
+        </main>
     )
 }
